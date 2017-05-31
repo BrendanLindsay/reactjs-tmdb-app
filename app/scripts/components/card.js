@@ -47,6 +47,10 @@ class Card extends Component {
                 <div className="col-xs-6"> Running Time: <span className="meta-data">{data.runtime} mins</span> </div>
                 <div className="col-xs-6"> Box Office: <span className="meta-data">{totalRevenue}</span></div>
                 <div className="col-xs-6"> Vote Average: <span className="meta-data">{data.vote}</span></div>
+                <div className="col-xs-3">{data.name}</div>
+                <div className="col-xs-3">{data.actor}</div>
+                <div className="col-xs-3">{data.actor}</div>
+                <div className="col-xs-3">{data.actor}</div>
               </div>
             </div>
           </div>
