@@ -23,7 +23,7 @@ class App extends Component {
   fetchApi(url) {
 
     fetch(url).then((res) => res.json()).then((data) => {
-      console.log(data);
+      // console.log(data);
       // update state with API data
       this.setState({
         movieID: data.id,
@@ -40,8 +40,8 @@ class App extends Component {
         runtime: data.runtime,
         revenue: data.revenue,
         backdrop: data.backdrop_path,
-        name: data.name
-
+        name: data.name,
+        credits: data.credits,
       })
     })
 

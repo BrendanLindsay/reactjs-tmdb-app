@@ -6,7 +6,10 @@ let backdropIMG;
 class Card extends Component {
 
   render() {
-    let data = this.props.data
+    const { data } = this.props;
+    const cast = data.credits && data.credits.cast ? data.credits.cast : [];
+
+    console.log(cast);
       // if movie ID found, then...
       let posterIMG = 'https://image.tmdb.org/t/p/w500' + data.poster,
           production = data.production,
@@ -47,10 +50,13 @@ class Card extends Component {
                 <div className="col-xs-6"> Running Time: <span className="meta-data">{data.runtime} mins</span> </div>
                 <div className="col-xs-6"> Box Office: <span className="meta-data">{totalRevenue}</span></div>
                 <div className="col-xs-6"> Vote Average: <span className="meta-data">{data.vote}</span></div>
-                <div className="col-xs-3">{data.name}</div>
-                <div className="col-xs-3">{data.actor}</div>
-                <div className="col-xs-3">{data.actor}</div>
-                <div className="col-xs-3">{data.actor}</div>
+                {cast.slice(0, 8).map(actor => (
+                  <div className="col-xs-3" key={`actor-${actor.order}`}>
+                    <img src={`https://image.tmdb.org/t/p/w160${actor.profile_path}`} />
+                    <div>{actor.name}</div>
+                    <div>as {actor.character}</div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
